@@ -1,5 +1,85 @@
 # Changelog
 
+## [14.10.5](https://github.com/mdevils/go-hass-agent/compare/v14.17.0...v14.10.5) (2026-10-11)
+
+
+### Features
+
+* **disk:** add macOS disk usage sensor, share worker logic with linux ([0d5f073](https://github.com/mdevils/go-hass-agent/commit/0d5f0731d6db256f70b949017a093b59a0f8da8c))
+* **disk:** add macOS SMART status sensor, share NVMe logic with linux ([611e5ba](https://github.com/mdevils/go-hass-agent/commit/611e5ba5b55dddeef635605278d2c9ce9401d88d))
+* gpu memory usage ([a0fbdd7](https://github.com/mdevils/go-hass-agent/commit/a0fbdd76b4f85e39c6e9d2710ad860d1c308330d))
+* **linux:** :sparkles: report the screen as locked when there is no session ([5f91f9c](https://github.com/mdevils/go-hass-agent/commit/5f91f9c9090364ed4bb283edcb9c6c5d0fba944b))
+* **linux:** :sparkles: try to detect desktop portal implementation and provide option to override in preferences if necessary ([bd3c675](https://github.com/mdevils/go-hass-agent/commit/bd3c675bc2137bf97ffc51e5b41d1d672ffb6f07))
+* **linux:** (AMD) GPU memory usage ([521ec76](https://github.com/mdevils/go-hass-agent/commit/521ec76175829222e11b9701e3e4a9d8c1b63b25))
+* **linux/disk:** :sparkles: add attributes to disk usage sensors for usage/free/totals in bytes ([6c0bf7f](https://github.com/mdevils/go-hass-agent/commit/6c0bf7f0dea052b748246570ea650824dfc750db))
+* **linux/location:** :sparkles: expose location sensor on all device types but disable by default if not running on a laptop ([b7c7d92](https://github.com/mdevils/go-hass-agent/commit/b7c7d92ecf45dfdcfc2e31c3cbc7d330a6f31fca))
+* **linux/media:** :sparkles: use pipewire for monitoring volume changes instead of pulseaudio ([0f8ae48](https://github.com/mdevils/go-hass-agent/commit/0f8ae48026dff3ee454e3799b8efc606e50c5191))
+* **linux/media:** :sparkles: use pipewire for volume control ([6f8a8e9](https://github.com/mdevils/go-hass-agent/commit/6f8a8e9205587c039fbdee30964d795df46d5bef))
+* **linux/media:** ✨ allow setting a volume limit to support overamplification of volume (i.e., go above 100%) ([2e3a4da](https://github.com/mdevils/go-hass-agent/commit/2e3a4da226d63a2da6e7063e28df275e9e6a5193))
+* **linux/media:** ✨ improved webcam streaming ([abf6153](https://github.com/mdevils/go-hass-agent/commit/abf615316537068ba875259a9b75d7b3ea20d856))
+* **linux/media:** ✨ monitor webcam usage via pipewire and video4linux ([47fddc2](https://github.com/mdevils/go-hass-agent/commit/47fddc2f735258ad6b426f1b927365774b7076da))
+* **linux/system:** :sparkles: improved user activity worker ([afdc6c0](https://github.com/mdevils/go-hass-agent/commit/afdc6c0243d625e4379ea2d16bbfd8ab2956bfaf))
+* **temperature:** add macOS hardware temperature sensors ([d18caba](https://github.com/mdevils/go-hass-agent/commit/d18caba2704cd6618dd613b713f093db71ceaf7c))
+* **temperature:** add macOS hardware temperature sensors ([9770271](https://github.com/mdevils/go-hass-agent/commit/9770271c1e22e783ba38931d668aa86547c9bdc5))
+* **web:** :sparkles: add simple landing/home page with table of sensor values ([e961ff3](https://github.com/mdevils/go-hass-agent/commit/e961ff38390380f6ac9ed9035972b5cfd3f08571))
+
+
+### Bug Fixes
+
+* :bug: improvement registration logic ([884fbb4](https://github.com/mdevils/go-hass-agent/commit/884fbb4ee56f7f45a712d5211b26e9296f401a34))
+* check disabled preference before D-Bus call in ABRT worker ([c86f9a2](https://github.com/mdevils/go-hass-agent/commit/c86f9a2bc78e55f946b23b9f2065fbfcdaa8d556))
+* check disabled preference before D-Bus call in ABRT worker ([3fb98d4](https://github.com/mdevils/go-hass-agent/commit/3fb98d402a3414e25c540a3c7e9c63f727ac6da5))
+* **ci:** 🔧 set APPVERSION as needed for nfpm packaging ([d6f254f](https://github.com/mdevils/go-hass-agent/commit/d6f254f4d8d2f46cb36204e84686b97487b2f5cf))
+* **ci:** gate darwin files by GOOS and add macOS test job ([7a3ec81](https://github.com/mdevils/go-hass-agent/commit/7a3ec81caaaa7f7f79a23a3059c86ec1646dbf97))
+* **cli:** :bug: fix display of registration status ([a5c4fe5](https://github.com/mdevils/go-hass-agent/commit/a5c4fe52852e8bc5af734553d1f7889464da3648))
+* **config:** :bug: actually working support for custom config path ([8f39c10](https://github.com/mdevils/go-hass-agent/commit/8f39c102fdec2c0113e253460ecd3e4575b8cfbe))
+* **cpu:** guard the usage worker's reading maps ([4ad1c07](https://github.com/mdevils/go-hass-agent/commit/4ad1c07fc637e3cbfcf109935df0190b03c9a781))
+* **cpu:** guard the usage worker's reading maps ([5b70152](https://github.com/mdevils/go-hass-agent/commit/5b70152ae8273028ca5ad041e4b5d0fe562c6f3a))
+* **github:** 🔧 fix missing version in build workflow ([40b3a47](https://github.com/mdevils/go-hass-agent/commit/40b3a476446e10041ba4c3ee110edd512db406c4))
+* **hass/api:** :bug: don't send parts of request with nil/empty values ([6da589c](https://github.com/mdevils/go-hass-agent/commit/6da589c10cf2f0a5f418aac332df9413b4cd9977))
+* **hass:** 🔧 schedule config updates in sync.Once setupClient ([270d178](https://github.com/mdevils/go-hass-agent/commit/270d178687cb1d27792f6a78eebfb99b203944de))
+* **linux:** :bug: only use a graphical session for session-based sensors ([fc80d82](https://github.com/mdevils/go-hass-agent/commit/fc80d82db76c2be257eccbc93d1e92dca408f871))
+* **linux/disk:** :bug: fix detection of ignored mounts ([df2e8e8](https://github.com/mdevils/go-hass-agent/commit/df2e8e80703ad078e00a26fdefc05236cd120767))
+* **linux/disk:** respect disabled preference before SMART capability check ([0d27760](https://github.com/mdevils/go-hass-agent/commit/0d277604cd71b2533efdc6f8e8c7380e6f8ebeb7))
+* **linux/disk:** respect disabled preference before SMART capability check ([d52e70d](https://github.com/mdevils/go-hass-agent/commit/d52e70d8e710426f661042e6dac2526a910f997a))
+* **linux/media:** :bug: use proper event type for filtering pipewire events ([9d3d597](https://github.com/mdevils/go-hass-agent/commit/9d3d5974f41fcd3fc2ac5a79be07858f20c36857))
+* **linux/media:** :bug: volume control fixes ([2befa10](https://github.com/mdevils/go-hass-agent/commit/2befa10a3af4e3c76536ba0d532483e5920ca7f6))
+* **linux/network:** 🐛 cover all link states ([c547a93](https://github.com/mdevils/go-hass-agent/commit/c547a930ffd539a29925457f514f15eb5394a9d1))
+* **linux/power:** :bug: fix logic for detecting and using ddcutil on Gnome for backlight control. fixes [#802](https://github.com/mdevils/go-hass-agent/issues/802) ([2dad9e6](https://github.com/mdevils/go-hass-agent/commit/2dad9e6bfe9c7467d7fcdfaf55ac3336fa92772d))
+* **linux/power:** 🔧 separate success and error conditions when determining which power controls to expose ([24a28f7](https://github.com/mdevils/go-hass-agent/commit/24a28f7bacc5bba550a2c05e72a6657b36bd58f5))
+* **linux/power:** honor disabled preference for backlight control ([a15b732](https://github.com/mdevils/go-hass-agent/commit/a15b7329b49f24604ce4cb2ae076cbdae024e2bd))
+* **linux/power:** honor disabled preference for backlight control ([a1d4898](https://github.com/mdevils/go-hass-agent/commit/a1d489806161b42ee0b5c4796dfbe7478b990ce3))
+* **linux/system:** :bug: fix clean-up on shutdown for user activity worker ([2ead3a1](https://github.com/mdevils/go-hass-agent/commit/2ead3a12522e716ecf0f504218f0db3c7688846a))
+* **linux/system:** :bug: open input devices read-only and non-blocking ([5e54843](https://github.com/mdevils/go-hass-agent/commit/5e54843e7b4bddd06b7d3ec7b68157096d105520))
+* **linux/webcam:** 🔧 watch /dev rather than /sys for video devices ([5d9f92f](https://github.com/mdevils/go-hass-agent/commit/5d9f92f0f3daffe2b19854f1c40d16eb36562e48))
+* **linux:** improve capability error clarity and respect disabled pref for activity worker ([7efe012](https://github.com/mdevils/go-hass-agent/commit/7efe012f6e9ff7833854c162626a3052012a5509))
+* **linux:** improve capability error clarity and respect disabled pref for activity worker ([a9598e9](https://github.com/mdevils/go-hass-agent/commit/a9598e98107fc632119ac0ff36a596e0888d3645))
+* **linux:** only use a graphical session for session-based sensors, and report locked without one ([be63df3](https://github.com/mdevils/go-hass-agent/commit/be63df330e1220bf04f8b6593276426ce92f079e))
+* **linux:** reset user activity sensor on sleep/shutdown ([7e5f434](https://github.com/mdevils/go-hass-agent/commit/7e5f4345a88eec0ff46a57cce4cabcaa225d8bf6))
+* **linux:** reset user activity sensor on sleep/shutdown. Thanks @TheRealMierzen ([dd09930](https://github.com/mdevils/go-hass-agent/commit/dd09930c96934d91ef9288569906ada07fb99ed9))
+* **logging:** :bug: fix writing logfile ([116ee88](https://github.com/mdevils/go-hass-agent/commit/116ee8844de04280311ffed153d0aadb48120181))
+* missing return after handler error ([c4eb168](https://github.com/mdevils/go-hass-agent/commit/c4eb168cec9dde472fd35cbe6949b23a68efd263))
+* **mqtt:** :bug: fail sanitisation if config is nil ([d02bf4f](https://github.com/mdevils/go-hass-agent/commit/d02bf4fae1521bfd569878137bb5db90a5b9fad6))
+* **pipewire:** tolerate non-string node.nick values from pw-dump ([0e285f2](https://github.com/mdevils/go-hass-agent/commit/0e285f27e83c1c50efb6da321182744b9cc83a73))
+* **pipewire:** tolerate non-string node.nick values from pw-dump ([4494ffc](https://github.com/mdevils/go-hass-agent/commit/4494ffc1e46ea1c76ae6b4be45839b83474bf3bc))
+* **pkg/linux/pipewire:** 🔧 use any for undefined size element ([81c27d7](https://github.com/mdevils/go-hass-agent/commit/81c27d76601ad99a4e78949c4dc18dd52e097424))
+* **pkg/pipewire:** :bug: add capture time to events ([dadf67b](https://github.com/mdevils/go-hass-agent/commit/dadf67be6e9ae23e4c1933a93e2cdef1da6d6350))
+* **pkg/pipewire:** :bug: handle pw-dump errors ([863abcb](https://github.com/mdevils/go-hass-agent/commit/863abcbd32fe67df35ba7628ed5c922fdabeafe0))
+* **scheduler:** :bug: don't use outdated math package ([caad369](https://github.com/mdevils/go-hass-agent/commit/caad369571396f67f22da5b1aafee95969ea7e9e))
+* **server:** :bug: correct address shown for where registration url ([3868d60](https://github.com/mdevils/go-hass-agent/commit/3868d605a67c03ca27ea0641c25fe945232df0c5))
+* **server:** 🔧 return immediately after error ([c0b6d9d](https://github.com/mdevils/go-hass-agent/commit/c0b6d9dede9a38897d247cbac35c2db9783b28bd))
+* **web/assets:** :bug: fix import of hyperscript ([29892a0](https://github.com/mdevils/go-hass-agent/commit/29892a080bf1112fde94dfbab4a73c1b2334bc30))
+
+
+### Performance Improvements
+
+* **models:** ⚡ more efficient message string generation ([9bed8a5](https://github.com/mdevils/go-hass-agent/commit/9bed8a533250ec997e46e044198889d1b3662fdd))
+
+
+### Miscellaneous Chores
+
+* release 14.10.5 ([9bac9d6](https://github.com/mdevils/go-hass-agent/commit/9bac9d6c696ccb43d954ac4949d5bedc0001e796))
+
 ## [14.17.0](https://github.com/joshuar/go-hass-agent/compare/v14.16.0...v14.17.0) (2026-09-26)
 
 
